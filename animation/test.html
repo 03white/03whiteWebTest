@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>斜线幕布 - 点击分开</title>
+  <style>
+    /* 页面内容 */
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #7010a8;
+    }
+    .content {
+      font-size: 3rem;
+      color: #16c777;
+      text-align: center;
+    }
+
+    /* 遮罩容器：全屏、可点击 */
+    .curtain-stage {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      cursor: pointer;
+      /* 初始不阻挡点击，但需要捕获点击事件 */
+    }
+
+    /* 左右遮罩通用 */
+    .curtain {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: transform 1.8s cubic-bezier(0.65, 0, 0.35, 1); /* 慢速平滑 */
+      will-change: transform;
+    }
+
+    /* 左三角形：从左上角到右下角 */
+    .curtain-left {
+      background: #1074d1; /* 深色幕布 */
+      clip-path: polygon(0 0, 100% 0, 0 100%);
+      /* 初始位置 */
+      transform: translateX(0);
+    }
+
+    /* 右三角形：从左下角到右上角（即右下三角形） */
+    .curtain-right {
+      background: #c91c1f; /* 稍浅，区分边界更明显 */
+      clip-path: polygon(100% 0, 100% 100%, 0 100%);
+      transform: translateX(0);
+    }
+
+    /* 点击后触发的移动状态 */
+    .curtain-stage.open .curtain-left {
+      transform: translateX(-100%);
+    }
+    .curtain-stage.open .curtain-right {
+      transform: translateX(100%);
+    }
+
+    /* 动画完成后隐藏整个遮罩容器，保持不可见不可交互 */
+    .curtain-stage.done {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- 实际页面内容 -->
+  <div class="content">
+    welcome<br>
+    <small style="font-size:1rem;color:#666;">幕布已随点击缓慢分开</small>
+  </div>
+
+  <!-- 斜线遮罩层 -->
+  <div class="curtain-stage" id="curtainStage">
+    <div class="curtain curtain-left"></div>
+    <div class="curtain curtain-right"></div>
+  </div>
+
+  <script>
+    const stage = document.getElementById('curtainStage');
+
+    // 点击任意遮罩区域触发分开
+    stage.addEventListener('click', () => {
+      // 避免重复触发
+      if (stage.classList.contains('open')) return;
+      stage.classList.add('open');
+
+      // 监听动画结束事件（transitionend），彻底移除遮罩
+      const leftCurtain = document.querySelector('.curtain-left');
+      leftCurtain.addEventListener('transitionend', () => {
+        stage.classList.add('done');
+      }, { once: true }); // 只执行一次
+    });
+  </script>
+</body>
+</html>

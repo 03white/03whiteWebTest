@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>创建vue实例</title>
+</head>
+<body>
+   <div id="app">
+      {{msg}}
+      {{value*2}}
+   </div>
+   <img src="屏幕截图 2026-07-27 102316.png"></img>
+   
+   <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+   <script>
+    const app=new Vue(
+        {
+            el:'#app',
+            data:{
+                msg:'tony',
+                value:100
+            }
+        }
+    )
+   </script>
+</body>
+</html>

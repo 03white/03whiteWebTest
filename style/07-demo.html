@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>第07课 · Grid 网格布局</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        h2 { margin-top: 30px; }
+        .cell {
+            background: #b39ddb; color: #fff;
+            padding: 30px; text-align: center;
+            border-radius: 6px;
+        }
+
+        /* 1. 固定三列等宽 */
+        .grid3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        /* 2. 比例列 1fr:2fr */
+        .grid-ratio {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 12px;
+        }
+
+        /* 3. 响应式网格:缩放窗口自动增减列 */
+        .grid-auto {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 12px;
+        }
+
+        /* 4. 跨格子 */
+        .grid-span {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+        .grid-span .big {
+            grid-column: span 2;      /* 占两列 */
+            background: #ec407a;
+        }
+    </style>
+</head>
+<body>
+    <h1>Grid 网格布局</h1>
+
+    <h2>1. 三列等宽 repeat(3, 1fr)</h2>
+    <div class="grid3">
+        <div class="cell">1</div><div class="cell">2</div><div class="cell">3</div>
+        <div class="cell">4</div><div class="cell">5</div><div class="cell">6</div>
+    </div>
+
+    <h2>2. 比例列 1fr : 2fr</h2>
+    <div class="grid-ratio">
+        <div class="cell">1份</div>
+        <div class="cell">2份(更宽)</div>
+    </div>
+
+    <h2>3. 响应式(缩放窗口试试!)auto-fill + minmax</h2>
+    <div class="grid-auto">
+        <div class="cell">A</div><div class="cell">B</div><div class="cell">C</div>
+        <div class="cell">D</div><div class="cell">E</div><div class="cell">F</div>
+    </div>
+
+    <h2>4. 跨列 grid-column: span 2</h2>
+    <div class="grid-span">
+        <div class="cell big">我占两列</div>
+        <div class="cell">普通</div>
+        <div class="cell">普通</div>
+        <div class="cell">普通</div>
+    </div>
+</body>
+</html>

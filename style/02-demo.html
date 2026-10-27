@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>第02课 · 盒模型</title>
+    <style>
+        body { font-family: sans-serif; }
+
+        .box {
+            /* 内容宽高 */
+            width: 200px;
+            height: 80px;
+
+            /* 内边距:内容与边框之间的空隙 */
+            padding: 20px;
+
+            /* 边框:粗细 样式 颜色 */
+            border: 5px dashed #1976d2;
+
+            /* 外边距:这个盒子与别人之间的空隙 */
+            margin: 30px;
+
+            background: #09c463;
+        }
+
+        /* 对比:加上 box-sizing 后,width 包含 padding 和 border */
+        .box2 {
+            width: 200px;
+            height: 80px;
+            padding: 20px;
+            border: 5px solid #388e3c;
+            margin: 30px;
+            background: #c8e6c9;
+            box-sizing: border-box; /* 关键区别 */
+        }
+
+        /* padding / margin 可以分方向写 */
+        .directions {
+            background: #ffe0b2;
+            padding: 10px 40px;      /* 上下10 左右40 */
+            margin: 20px 0;          /* 上下20 左右0 */
+            border-bottom: 3px dashed #e65100; /* 只给下边框 */
+        }
+    </style>
+</head>
+<body>
+    <h1>盒模型</h1>
+
+    <p>默认盒子:实际占宽 = width + 左右 padding + 左右 border = 200+40+10 = <b>250px</b></p>
+    <div class="box">我是默认盒子(content-box)</div>
+
+    <p>加了 box-sizing:border-box:实际占宽就是 <b>200px</b>(padding、border 挤进去了)</p>
+    <div class="box2">我是 border-box 盒子</div>
+
+    <p>方向简写演示:</p>
+    <div class="directions">上下内边距10,左右内边距40,只有下边框</div>
+
+    <p>打开浏览器"开发者工具"(按 F12),选中元素,右下角能看到彩色的盒模型图。</p>
+</body>
+</html>

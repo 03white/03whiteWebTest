@@ -1,0 +1,9 @@
+{
+  "nodeShapes": ["rect", "rounded", "diamond", "ellipse"],
+  "defaultNode": { "type": "rect", "width": 140, "height": 48 },
+  "edgeTypes": ["line", "curve", "orthogonal"],
+  "viewport": { "minZoom": 0.2, "maxZoom": 4, "defaultZoom": 1 },
+  "grid": { "steps": [16, 32, 64, 128] },
+  "snap": { "enabled": true, "grid": 16 },
+  "pasteOffset": 20
+}

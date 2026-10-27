@@ -1,0 +1,49 @@
+# 依赖
+node_modules/
+.pnpm-store/
+
+# 构建产物
+dist/
+build/
+.next/
+.nuxt/
+.output/
+*.tsbuildinfo
+
+# 测试与缓存
+coverage/
+.nyc_output/
+.cache/
+.vite/
+.eslintcache
+
+# Python（flowGraph/projects/test）
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# 日志
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 环境变量（本仓库现无此类文件，预防性规则）
+.env
+.env.*
+!.env.example
+
+# 编辑器 / 系统
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# 打包产物
+*.tgz

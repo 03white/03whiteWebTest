@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>第03课 · 链接与图片</title>
+</head>
+<body>
+    <h1>链接与图片</h1>
+
+    <!-- 1. 外部链接:跳到别的网站 -->
+    <p><a href="https://developer.mozilla.org/zh-CN/">跳到 MDN(外部网站)</a></p>
+
+    <!-- 2. 新标签页打开 -->
+    <p><a href="https://developer.mozilla.org/zh-CN/" target="_blank">新标签页打开 MDN</a></p>
+
+    <!-- 3. 内部链接:跳到本项目里的另一个 html 文件 -->
+    <p><a href="02-demo.html">上一课:文本与列表(相对路径)</a></p>
+
+    <!-- 4. 锚点链接:跳到本页某个位置 -->
+    <p><a href="#bottom">跳到页面底部</a></p>
+
+    <!-- 5. 图片:src 是地址,alt 是图裂/读屏时的替代文字(必写) -->
+    <h2>图片</h2>
+    <img src="https://picsum.photos/300/180" alt="一张随机风景占位图" width="300">
+    <p>如果图片加载不出来,你会看到 alt 里的文字。</p>
+
+    <!-- 6. 图片本身也能当链接:把 img 包进 a 里 -->
+    <h2>可点击的图片</h2>
+    <a href="https://picsum.photos" target="_blank">
+        <img src="https://picsum.photos/200/120" alt="点我去 picsum" width="200">
+    </a>
+
+    <!-- 留出空间演示锚点跳转 -->
+    <div style="height:600px"></div>
+    <h2 id="bottom">这里是底部(锚点目标)</h2>
+    <p><a href="#">回到顶部</a></p>
+</body>
+</html>

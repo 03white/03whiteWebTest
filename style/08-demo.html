@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <!-- 响应式必写的视口声明 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第08课 · 响应式设计</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: sans-serif; }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #1976d2; color: #fff; padding: 14px 20px;
+        }
+        .nav a { color: #fff; margin-left: 16px; text-decoration: none; }
+
+        .tip { padding: 20px; background: #e8f5e9; text-align: center; }
+
+        /* 默认(宽屏):三列横向 */
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding: 20px;
+        }
+        .card {
+            flex: 1;
+            min-width: 200px;
+            background: #90caf9;
+            padding: 30px; text-align: center; border-radius: 8px;
+        }
+
+        /* 平板:≤768px 背景变黄提示,卡片竖排 */
+        @media (max-width: 768px) {
+            body { background: #fffde7; }
+            .tip::after { content: " —— 现在是【平板】布局(≤768px)"; }
+            .cards { flex-direction: column; }   /* 竖着堆 */
+        }
+
+        /* 手机:≤480px 背景变粉,导航菜单换行 */
+        @media (max-width: 480px) {
+            body { background: #fce4ec; }
+            .tip::after { content: " —— 现在是【手机】布局(≤480px)"; }
+            .nav { flex-direction: column; align-items: flex-start; gap: 6px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <strong>响应式网站</strong>
+        <div>
+            <a href="#">首页</a><a href="#">产品</a><a href="#">关于</a>
+        </div>
+    </div>
+
+    <div class="tip">拖动窗口宽度试试(当前是【宽屏】布局)</div>
+
+    <div class="cards">
+        <div class="card">卡片 1</div>
+        <div class="card">卡片 2</div>
+        <div class="card">卡片 3</div>
+    </div>
+</body>
+</html>

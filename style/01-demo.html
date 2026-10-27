@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>第01课 · CSS 基础与选择器</title>
+    <style>
+        /* ↑ 这就是"内部样式"写法:写在 head 的 <style> 里 */
+
+        /* 1. 标签选择器:选中所有 <p> */
+        p { color: #333; }
+
+        /* 2. class 选择器:选中 class="note" 的元素,用 . 开头(最常用!) */
+        .note { color: green; font-weight: bold; }
+
+        /* 3. id 选择器:选中 id="title" 的元素,用 # 开头(页面唯一) */
+        #title { color: #6f19d2; }
+
+        /* 4. 后代选择器:选中 .box 里面的所有 span */
+        .box span { background: yellow;color:aqua }
+
+        /* 5. 群组选择器:逗号隔开,一起设置 */
+        h2, h3 { font-family: sans-serif; }
+
+        /* 6. 伪类:鼠标悬停时 */
+        a:hover { color: red; }
+    </style>
+</head>
+<body>
+    <h1 id="title">CSS 选择器演示(我是 id 选择器,蓝色)</h1>
+
+    <p>普通段落,被标签选择器染成深灰色。</p>
+    <p class="note">我有 class="note",所以是绿色加粗。</p>
+
+    <div class="box">
+        盒子里有一个 <span>高亮的 span</span>,被后代选择器染黄。
+    </div>
+
+    <h2>群组选择器标题</h2>
+    <p><a href="#">把鼠标放我身上会变红(伪类 hover)</a></p>
+</body>
+</html>

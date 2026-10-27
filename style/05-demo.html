@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>第05课 · 显示与定位</title>
+    <style>
+        body { font-family: sans-serif; margin: 0; }
+
+        /* sticky 顶部导航:滚动到顶就粘住 */
+        .nav {
+            position: sticky;
+            top: 0;
+            background: #1976d2;
+            color: #fff;
+            padding: 12px 20px;
+            z-index: 10;
+        }
+
+        .content { padding: 20px; }
+
+        /* display 演示 */
+        .inline-block-demo span {
+            display: inline-block;   /* 横着排,又能设宽高 */
+            width: 80px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background: #c5e1a5;
+            margin: 4px;
+        }
+
+        /* relative + absolute 组合:红点钉在卡片右上角 */
+        .card {
+            position: relative;      /* 父:参照物 */
+            width: 200px;
+            height: 100px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            margin: 20px 0;
+            padding: 12px;
+        }
+        .badge {
+            position: absolute;      /* 子:相对父定位 */
+            top: -8px;
+            right: -8px;
+            background: red;
+            color: #fff;
+            border-radius: 50%;
+            width: 24px; height: 24px;
+            text-align: center; line-height: 24px;
+            font-size: 12px;
+        }
+
+        /* fixed 回到顶部按钮:滚动也不动 */
+        .back-top {
+            position: fixed;
+            right: 20px; bottom: 20px;
+            background: #333; color: #fff;
+            padding: 10px 14px; border-radius: 6px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">我是 sticky 导航(往下滚会粘在顶部)</div>
+
+    <div class="content">
+        <h2>display 行内块演示</h2>
+        <div class="inline-block-demo">
+            <span>块1</span><span>块2</span><span>块3</span>
+        </div>
+
+        <h2>relative + absolute 演示</h2>
+        <div class="card">
+            <span class="badge">5</span>
+            我是卡片,右上角红点是 absolute 定位的。
+        </div>
+
+        <!-- 撑高页面,方便测试滚动 -->
+        <div style="height: 1200px; background: linear-gradient(#fff,#eee);">
+            往下滚，观察顶部导航和右下角按钮。
+        </div>
+    </div>
+
+    <a class="back-top" href="#">↑ 顶部</a>
+</body>
+</html>

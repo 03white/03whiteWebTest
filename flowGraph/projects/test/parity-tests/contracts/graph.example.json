@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "nodes": [
+    { "id": "n1", "type": "rect", "label": "开始", "x": 100, "y": 100, "width": 140, "height": 48 },
+    { "id": "n2", "type": "diamond", "label": "判断", "x": 320, "y": 90, "width": 120, "height": 120 }
+  ],
+  "edges": [
+    { "id": "e1", "source": "n1", "target": "n2", "type": "line", "label": "是" }
+  ],
+  "viewport": { "x": 0, "y": 0, "zoom": 1 }
+}

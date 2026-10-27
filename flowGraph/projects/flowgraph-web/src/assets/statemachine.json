@@ -1,0 +1,24 @@
+{
+  "initial": "idle",
+  "events": ["pointerdown", "pointermove", "pointerup", "dblclick", "blur"],
+  "states": [
+    { "id": "idle", "description": "空闲，悬停高亮" },
+    { "id": "selecting", "description": "框选（拖空白）" },
+    { "id": "moving-selection", "description": "拖动选中项" },
+    { "id": "connecting", "description": "从锚点拖出连线" },
+    { "id": "panning", "description": "平移画布" },
+    { "id": "editing-label", "description": "编辑节点文本" }
+  ],
+  "transitions": [
+    { "from": "idle", "event": "pointerdown", "guard": "on-empty", "to": "selecting" },
+    { "from": "idle", "event": "pointerdown", "guard": "on-node", "to": "moving-selection" },
+    { "from": "idle", "event": "pointerdown", "guard": "on-anchor", "to": "connecting" },
+    { "from": "idle", "event": "pointerdown", "guard": "pan", "to": "panning" },
+    { "from": "idle", "event": "dblclick", "guard": "on-node", "to": "editing-label" },
+    { "from": "selecting", "event": "pointerup", "to": "idle" },
+    { "from": "moving-selection", "event": "pointerup", "to": "idle" },
+    { "from": "connecting", "event": "pointerup", "to": "idle" },
+    { "from": "panning", "event": "pointerup", "to": "idle" },
+    { "from": "editing-label", "event": "blur", "to": "idle" }
+  ]
+}

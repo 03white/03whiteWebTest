@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>第05课 · 表单</title>
+    <style>
+        label { display: inline-block; width: 90px; }
+        .row { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <h1>注册表单</h1>
+
+    <!-- form 是表单容器;action 是提交到哪(这里空着不真正提交) -->
+    <form action="#" method="post">
+
+        <div class="row">
+            <!-- label 的 for 对应 input 的 id,点文字也能聚焦输入框 -->
+            <label for="username">用户名</label>
+            <input type="text" id="username" name="username" placeholder="请输入用户名">
+        </div>
+
+        <div class="row">
+            <label for="pwd">密码</label>
+            <input type="password" id="pwd" name="pwd">
+        </div>
+
+        <div class="row">
+            <label for="email">邮箱</label>
+            <input type="email" id="email" name="email">
+        </div>
+
+        <div class="row">
+            <label for="age">年龄</label>
+            <input type="number" id="age" name="age" min="0" max="120">
+        </div>
+
+        <div class="row">
+            <label>性别</label>
+            <!-- 单选:同一组 name 相同,只能选一个 -->
+            <input type="radio" name="gender" value="male" id="m"><label for="m">男</label>
+            <input type="radio" name="gender" value="female" id="f"><label for="f">女</label>
+        </div>
+
+        <div class="row">
+            <label>爱好</label>
+            <!-- 多选:可以选多个 -->
+            <input type="checkbox" name="hobby" value="code" id="h1"><label for="h1">编程</label>
+            <input type="checkbox" name="hobby" value="music" id="h2"><label for="h2">音乐</label>
+        </div>
+
+        <div class="row">
+            <label for="city">城市</label>
+            <!-- 下拉选择 -->
+            <select id="city" name="city">
+                <option value="bj">北京</option>
+                <option value="sh">上海</option>
+                <option value="gz">广州</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <label for="intro">自我介绍</label>
+            <!-- 多行文本 -->
+            <textarea id="intro" name="intro" rows="4" cols="30"></textarea>
+        </div>
+
+        <div class="row">
+            <!-- 提交按钮 -->
+            <button type="submit">提交注册</button>
+            <button type="reset">重置</button>
+        </div>
+    </form>
+</body>
+</html>

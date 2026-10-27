@@ -1,0 +1,37 @@
+{
+  "name": "@zzz/my-utils",
+  "version": "0.1.1",
+  "description": "Learning npm/pnpm publish: a tiny utility library",
+  "type": "module",
+  "main": "./src/index.js",
+  "module": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    },
+    "./math": {
+      "types": "./src/math.d.ts",
+      "default": "./src/math.js"
+    }
+  },
+  "files": [
+    "src"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20.19"
+  },
+  "keywords": [
+    "demo",
+    "learning",
+    "utils"
+  ],
+  "author": "zzz<zzz@2856880955@qq.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "http://localhost:4873"
+  }
+}

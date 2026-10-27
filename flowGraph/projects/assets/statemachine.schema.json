@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["initial", "states", "transitions"],
+  "properties": {
+    "initial": { "type": "string" },
+    "events": { "type": "array", "items": { "type": "string" } },
+    "states": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id"],
+        "properties": {
+          "id": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "transitions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from", "event", "to"],
+        "properties": {
+          "from": { "type": "string" },
+          "event": { "type": "string" },
+          "guard": { "type": "string" },
+          "to": { "type": "string" }
+        }
+      }
+    }
+  }
+}

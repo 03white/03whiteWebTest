@@ -1,0 +1,24 @@
+<template>
+  <div id="app">
+    <van-button type="primary">主要按钮</van-button>
+    <van-button type="info">信息按钮</van-button>
+    <van-button type="default">默认按钮</van-button>
+    <van-button type="warning">警告按钮</van-button>
+    <van-button type="danger">危险按钮</van-button>
+    <van-switch v-model="checked"/>
+    <van-rate v-model="score"></van-rate>
+    <router-view/>
+  </div>
+</template>
+<script>
+export default {
+  data () {
+    return {
+      checked: true,
+      score:5
+    }
+  }
+}
+</script>
+<style lang="less">
+</style>

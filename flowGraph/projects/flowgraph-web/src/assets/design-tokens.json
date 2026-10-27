@@ -1,0 +1,17 @@
+{
+  "color": {
+    "canvas": "#f7f8fa",
+    "grid": "#e5e7eb",
+    "nodeFill": "#ffffff",
+    "nodeStroke": "#cbd5e1",
+    "nodeStrokeSelected": "#2563eb",
+    "nodeText": "#1f2937",
+    "edgeStroke": "#94a3b8",
+    "edgeStrokeSelected": "#2563eb",
+    "anchorStroke": "#2563eb"
+  },
+  "stroke": { "node": 1.5, "edge": 1.5, "selected": 2 },
+  "radius": { "node": 4, "rounded": 8 },
+  "spacing": { "s": 4, "m": 8, "l": 16, "xl": 24 },
+  "typography": { "nodeLabelSize": 14, "fontFamily": "system-ui, sans-serif" }
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>第03课 · 文本与颜色</title>
+    <style>
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            color: #333;          /* 正文深灰,比纯黑柔和 */
+            line-height: 1.7;      /* 舒适行高 */
+            padding: 20px;
+        }
+
+        h1 {
+            color: #1976d2;        /* 十六进制蓝 */
+            text-align: center;    /* 居中 */
+        }
+
+        .highlight {
+            background-color: rgba(255, 235, 59, 0.6); /* 半透明黄底 */
+            font-weight: bold;
+        }
+
+        .article {
+            text-indent: 2em;      /* 首行缩进两个字 */
+            font-size: 16px;
+        }
+
+        a {
+            color: #e91e63;
+            text-decoration: none; /* 去掉下划线 */
+        }
+        a:hover { text-decoration: underline; }
+
+        .units span { border: 1px solid #ccc; padding: 4px; margin: 2px; display: inline-block; }
+    </style>
+</head>
+<body>
+    <h1>文本、字体与颜色</h1>
+
+    <p class="article">
+        这是一段带首行缩进的正文。行高设成了 1.7,读起来比较舒服。
+        句子里可以有 <span class="highlight">高亮的重点</span>,
+        也可以有 <a href="#">一个链接(去掉了下划线,悬停才出现)</a>。
+    </p>
+
+    <p class="units">
+        单位演示:
+        <span style="font-size:16px">16px</span>
+        <span style="font-size:1.5em">1.5em</span>
+        <span style="font-size:2rem">2rem</span>
+        <span style="width:30%">宽度30%</span>
+    </p>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>第04课 · 表格</title>
+    <!-- 这里破例写一点点内联 CSS,只为让表格线可见,方便你看结构 -->
+    <style>
+        table { border-collapse: collapse; }
+        th, td { border: 1px solid #999; padding: 6px 12px; }
+        th { background: #f0f0f0; }
+    </style>
+</head>
+<body>
+    <h1>课程表(表格)</h1>
+
+    <table>
+        <!-- caption:表格标题 -->
+        <caption>本周课程安排</caption>
+
+        <!-- thead:表头区域 -->
+        <thead>
+            <tr>
+                <th>时间</th>
+                <th>周一</th>
+                <th>周二</th>
+            </tr>
+        </thead>
+
+        <!-- tbody:数据区域 -->
+        <tbody>
+            <tr>
+                <td>上午</td>
+                <td>HTML</td>
+                <td>CSS</td>
+            </tr>
+            <tr>
+                <td>下午</td>
+                <td>练习</td>
+                <td>练习</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>合并单元格</h2>
+    <table>
+        <tr>
+            <th>姓名</th>
+            <!-- colspan=2:横向合并两列 -->
+            <th colspan="2">联系方式</th>
+        </tr>
+        <tr>
+            <td>小明</td>
+            <td>电话</td>
+            <td>邮箱</td>
+        </tr>
+        <tr>
+            <!-- rowspan=2:纵向合并两行 -->
+            <td rowspan="2">小红</td>
+            <td>微信</td>
+            <td>QQ</td>
+        </tr>
+        <tr>
+            <td>地址</td>
+            <td>城市</td>
+        </tr>
+    </table>
+</body>
+</html>

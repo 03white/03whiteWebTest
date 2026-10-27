@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>第06课 · 语义化标签</title>
+    <style>
+        /* 只为看清区块边界,加了背景色和边框 */
+        header, nav, main, aside, section, article, footer {
+            border: 1px dashed #888; padding: 10px; margin: 6px 0;
+        }
+        header { background: #e3f2fd; }
+        nav { background: #e8f5e9; }
+        aside { background: #fff3e0; }
+        footer { background: #eceff1; }
+        nav ul { list-style: none; padding: 0; }
+        nav li { display: inline; margin-right: 15px; }
+    </style>
+</head>
+<body>
+    <!-- header:页头,通常放 logo 和导航 -->
+    <header>
+        <h1>我的博客</h1>
+        <!-- nav:导航区,注意导航是用 ul>li 做的 -->
+        <nav>
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">文章</a></li>
+                <li><a href="#">关于</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- main:页面主内容,一个页面只应有一个 -->
+    <main>
+        <!-- article:一篇独立的文章 -->
+        <article>
+            <h2>第一篇文章</h2>
+            <p>这是文章正文……</p>
+            <!-- section:文章内的一个章节 -->
+            <section>
+                <h3>小节标题</h3>
+                <p>小节内容。</p>
+            </section>
+        </article>
+
+        <!-- aside:侧边栏 / 与主内容相关但次要的内容 -->
+        <aside>
+            <h3>侧边栏</h3>
+            <p>广告、相关链接等。</p>
+        </aside>
+    </main>
+
+    <!-- footer:页脚,放版权、备案、联系方式 -->
+    <footer>
+        <p>© 2026 我的博客 · 版权所有</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>vue指令</title>
+</head>
+<body>
+   <div id="app">
+        <div v-html="msg"></div>
+   </div>
+   <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+   <script>
+    const app=new Vue(
+        {
+            el:'#app',
+            data:{
+                msg:'<h1>黑马程序员</h1>',
+                img: './屏幕截图 2026-07-27 102316.png'
+            }
+        }
+    )
+   </script>
+</body>
+</html>

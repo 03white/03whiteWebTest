@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["nodeShapes", "defaultNode", "viewport"],
+  "properties": {
+    "nodeShapes": { "type": "array", "items": { "type": "string" } },
+    "edgeTypes": { "type": "array", "items": { "type": "string" } },
+    "defaultNode": {
+      "type": "object",
+      "required": ["type", "width", "height"],
+      "properties": {
+        "type": { "type": "string" },
+        "width": { "type": "number" },
+        "height": { "type": "number" }
+      }
+    },
+    "viewport": {
+      "type": "object",
+      "required": ["minZoom", "maxZoom", "defaultZoom"],
+      "properties": {
+        "minZoom": { "type": "number" },
+        "maxZoom": { "type": "number" },
+        "defaultZoom": { "type": "number" }
+      }
+    },
+    "grid": { "type": "object" },
+    "snap": { "type": "object" },
+    "pasteOffset": { "type": "number" }
+  }
+}

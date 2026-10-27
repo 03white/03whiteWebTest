@@ -1,0 +1,12 @@
+{
+  "name": "playground",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "dependencies": {
+    "@zzz/my-utils": "^0.1.0"
+  }
+}

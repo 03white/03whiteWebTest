@@ -1,0 +1,14 @@
+{
+  "toolbar": {
+    "addNode": "添加节点",
+    "undo": "撤销",
+    "redo": "重做",
+    "copy": "复制",
+    "paste": "粘贴",
+    "delete": "删除",
+    "exportSvg": "导出 SVG",
+    "exportPng": "导出 PNG"
+  },
+  "node": { "defaultLabel": "节点" },
+  "empty": { "hint": "空白画布：点击创建节点，拖拽锚点连线" }
+}

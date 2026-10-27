@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>第04课 · 背景与边框</title>
+    <style>
+        body { font-family: sans-serif; background: #eceff1; padding: 30px; }
+
+        /* 渐变头图 */
+        .banner {
+            height: 140px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 12px;
+            color: #fff;
+            text-align: center;
+            line-height: 140px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+            font-size: 24px;
+        }
+
+        /* 卡片:白底 + 圆角 + 内边距 + 阴影 */
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            margin: 20px 0;
+            width: 300px;
+        }
+
+        /* 圆形头像 */
+        .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;        /* 变圆 */
+            border: 3px solid #fff;
+            box-shadow: 0 0 6px rgba(0,0,0,0.3);
+        }
+
+        /* 渐变按钮 */
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            background: linear-gradient(to right, #43cea2, #185a9d);
+            color: #fff;
+            border-radius: 20px;
+            text-decoration: none;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">渐变头图 Banner</div>
+
+    <div class="card">
+        <img class="avatar" src="https://picsum.photos/80" alt="头像">
+        <h3>一张卡片</h3>
+        <p>白底、圆角、内边距、淡阴影——这就是现代卡片的标准配方。</p>
+        <a class="btn" href="#">渐变按钮</a>
+    </div>
+</body>
+</html>

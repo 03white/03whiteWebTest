@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "graph.schema.json",
+  "title": "FlowGraph 序列化 schema",
+  "type": "object",
+  "required": ["version", "nodes", "edges", "viewport"],
+  "properties": {
+    "version": { "const": 1 },
+    "nodes": { "type": "array", "items": { "$ref": "#/definitions/node" } },
+    "edges": { "type": "array", "items": { "$ref": "#/definitions/edge" } },
+    "viewport": { "$ref": "#/definitions/viewport" }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "node": {
+      "type": "object",
+      "required": ["id", "type", "label", "x", "y", "width", "height"],
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "enum": ["rect", "rounded", "diamond", "ellipse"] },
+        "label": { "type": "string" },
+        "x": { "type": "number" },
+        "y": { "type": "number" },
+        "width": { "type": "number" },
+        "height": { "type": "number" }
+      },
+      "additionalProperties": false
+    },
+    "edge": {
+      "type": "object",
+      "required": ["id", "source", "target"],
+      "properties": {
+        "id": { "type": "string" },
+        "source": { "type": "string" },
+        "target": { "type": "string" },
+        "type": { "enum": ["line", "curve", "orthogonal"] },
+        "label": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "viewport": {
+      "type": "object",
+      "required": ["x", "y", "zoom"],
+      "properties": {
+        "x": { "type": "number" },
+        "y": { "type": "number" },
+        "zoom": { "type": "number" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

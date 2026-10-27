@@ -1,0 +1,17 @@
+# Python (harness)
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+*.egg-info/
+
+# Node (前端产品)
+node_modules/
+dist/
+dist-ssr/
+
+# 本地 / IDE / OS
+.DS_Store
+.idea/
+.vscode/
+*.local
