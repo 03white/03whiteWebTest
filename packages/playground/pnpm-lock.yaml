@@ -8,16 +8,16 @@ importers:
 
   .:
     dependencies:
-      '@zzz/my-utils':
-        specifier: ^0.1.0
-        version: 0.1.0
+      '@03white/my-utils':
+        specifier: ^0.1.3
+        version: 0.1.3
 
 packages:
 
-  '@zzz/my-utils@0.1.0':
-    resolution: {integrity: sha512-mcbdjArwibf4A2SnhDkt8KFo/mTUXnS5YIKU9NogCugK0jYS94jJHhx7UlhWpRekSpW8iaNl4BeZ8h1tgwbaCA==}
+  '@03white/my-utils@0.1.3':
+    resolution: {integrity: sha512-WGBGU8kNqyAsz/sZlNDaywJFsoPmoVl/obadKfHhuWvAmDMkuO3wWmfCePZSX/VKcYa4w0Ioe6yDUFVEfguBhA==}
     engines: {node: '>=20.19'}
 
 snapshots:
 
-  '@zzz/my-utils@0.1.0': {}
+  '@03white/my-utils@0.1.3': {}

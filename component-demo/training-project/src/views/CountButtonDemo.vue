@@ -10,7 +10,7 @@ const latestValue = ref(0)
     <h2>练习 3：CountButton</h2>
     <p class="demo-card__hint">目标：ref、点击函数、emit 参数。</p>
     <div class="demo-row">
-      <CountButton @change="latestValue = $event" />
+      <CountButton disabled @changes="latestValue = $event" />
       <span>父组件收到：{{ latestValue }}</span>
     </div>
   </section>

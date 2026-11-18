@@ -32,7 +32,7 @@ function toggle() {
     role="switch"
     @click="toggle"
   >
-    <span class="base-switch__thumb" />
+  <span class="base-switch__thumb" />
   </button>
 </template>
 

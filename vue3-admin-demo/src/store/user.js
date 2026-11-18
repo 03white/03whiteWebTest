@@ -1,0 +1,29 @@
+import{defineStore} from 'pinia'
+export const useUserStore=defineStore('user',{
+    state:()=>({
+        token:localStorage.getItem('token')||'',
+        username:localStorage.getItem('username')||'',
+        role:localStorage.getItem('role')||'',
+    }),
+    getters:{
+        isLogin:(state)=>!!state.token,
+    },
+    actions:{
+        login({username,role}){
+            this.token='mock-token-'+Date.now()
+            this.username=username
+            this.role=role
+            localStorage.setItem('token',this.token)
+            localStorage.setItem('username',this.username)
+            localStorage.setItem('role',this.role)
+        },
+        logout(){
+            this.token=''
+            this.username=''
+            this.role=''
+            localStorage.removeItem('token')
+            localStorage.removeItem('username')
+            localStorage.removeItem('role')
+        }
+    }
+})

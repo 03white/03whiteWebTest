@@ -17,9 +17,8 @@ const count = ref(0)
 
 function increment() {
   if (props.disabled) return
-
   count.value += 1
-  emit('change', count.value)
+  emit('changes',count.value)
 }
 </script>
 

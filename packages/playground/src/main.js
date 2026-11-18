@@ -1,5 +1,5 @@
-import { add, formatDate } from '@zzz/my-utils';
-import { subtract } from '@zzz/my-utils/math';
+import { add, formatDate } from '@03white/my-utils';
+import { subtract } from '@03white/my-utils/math';
 
 console.log('add:', add(1, 2));
 console.log('subtract:', subtract(5, 2));

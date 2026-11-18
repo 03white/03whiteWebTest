@@ -15,10 +15,10 @@ defineProps<Props>()
 <style scoped>
 .status-dot {
   display: inline-block;
-  width: 12px;
-  height: 12px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background: #94a3b8;
+  background: #151313;
 }
 
 .status-dot--success {

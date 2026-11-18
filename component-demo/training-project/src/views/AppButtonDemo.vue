@@ -5,7 +5,9 @@ import AppButton from '../components/AppButton/AppButton.vue'
 <template>
   <section class="demo-card">
     <h2>练习 7：AppButton</h2>
-    <p class="demo-card__hint">先完成原生 button 封装，再对照公司的 VanButton。</p>
+    <p class="demo-card__hint">
+      先完成原生 button 封装，再对照公司的 VanButton。下一课把它改成 token 驱动。
+    </p>
     <div class="demo-row">
       <AppButton variant="primary">主要按钮</AppButton>
       <AppButton variant="secondary">次要按钮</AppButton>

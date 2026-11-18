@@ -1,0 +1,22 @@
+node_modules
+dist
+dist-ssr
+*.local
+
+# vue-tsc / Volar 类型检查中间产物（正常情况下 noEmit 已阻止生成，这里兜底）
+*.vue.js
+*.vue.d.ts
+*.tsbuildinfo
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.sw?
+.DS_Store

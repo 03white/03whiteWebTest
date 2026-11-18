@@ -7,6 +7,6 @@
     "start": "node src/main.js"
   },
   "dependencies": {
-    "@zzz/my-utils": "^0.1.0"
+    "@03white/my-utils": "^0.1.3"
   }
 }

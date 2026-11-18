@@ -1,0 +1,68 @@
+#!/bin/sh
+# Commit message format check
+# 与服务端 pre-receive hook 保持一致的正则:
+#   (^(feat)|(init)|(fix)|(docs)|(refactor)|(style)|(perf)|(test)|(merge)|(revert)|(chore)|(build))(\([A-Za-z0-9_一-龥]+\))?: (.)+
+# 详见 references/git-commit-message.md
+#
+# 启用方法: node ${CLAUDE_PLUGIN_ROOT}/skills/git-workflow/scripts/setup-githooks.js
+#           (或会话启动时由 SessionStart hook 自动安装)
+# 本文件是源模板;setup/check 脚本会把它部署到仓库根 .githooks/commit-msg。
+# @ecs-tools-managed — 本文件由 ecs-tools git-workflow 部署与维护;若要改为团队自管(自定义校验),删除本标记行,ecs-tools 将不再覆盖本文件。
+
+MSG_FILE="$1"
+[ -z "$MSG_FILE" ] && exit 0
+
+# 取首行非注释行
+FIRST_LINE=$(grep -v '^#' "$MSG_FILE" | sed -n '1p')
+
+# 空消息（git commit 取消时）放过, 由 git 自身处理
+[ -z "$FIRST_LINE" ] && exit 0
+
+# 跳过 Git 自动生成的合并/回滚/rebase 消息
+case "$FIRST_LINE" in
+    "Merge "*|"Revert \""*|"fixup! "*|"squash! "*|"amend! "*)
+        exit 0
+        ;;
+esac
+
+# 正则用 POSIX ERE (grep -E),CJK 区间写成字面量 一-龥,并强制 LC_ALL=C。
+# 两处都是踩过坑的硬约束,改动前请先看 tests/commit-msg.test.js:
+#   1) 不可用 grep -P:macOS 自带 BSD grep、Alpine busybox grep 都没有 -P,
+#      会以 "invalid option -- P" + 退出码 2 失败,if 判假后无条件落到下方拒绝分支——
+#      所有 commit(含完全合法的)都被挡,且报错文案还谎称是格式问题。
+#   2) 不可去掉 LC_ALL=C:GNU grep 在真实 UTF-8 locale(如 CI 常见的 LANG=C.UTF-8)下,
+#      对字面量 CJK 区间报 "Invalid collation character" + 退出码 2,失败方式与 (1) 完全一致。
+#      LC_ALL=C 让匹配退化为逐字节,区间等价于 [\xE4\xB8\x80-\xE9\xBE\xA5] 覆盖的字节集合,
+#      在 BSD / GNU / busybox grep 上行为一致。代价是比服务端 PCRE 版略宽松
+#      (é、々 等非 ASCII 也会被 scope 接受),服务端 pre-receive 仍是最终权威。
+PATTERN='(^(feat)|(init)|(fix)|(docs)|(refactor)|(style)|(perf)|(test)|(merge)|(revert)|(chore)|(build))(\([A-Za-z0-9_一-龥]+\))?: (.)+'
+
+if printf '%s' "$FIRST_LINE" | LC_ALL=C grep -qE "$PATTERN"; then
+    exit 0
+fi
+
+# 拒绝, 给清晰错误信息
+{
+    echo ""
+    echo "✗ Commit message 格式不符合规则 (服务端 pre-receive hook 同步阻断)"
+    echo ""
+    echo "  当前首行: $FIRST_LINE"
+    echo ""
+    echo "  必需格式: <type>[(<scope>)]: <description>"
+    echo "  type 白名单: feat / init / fix / docs / refactor / style / perf / test / merge / revert / chore / build"
+    echo "  scope 字符集: A-Z a-z 0-9 _ 中文 (不允许 - / 等)"
+    echo "  :  英文冒号 + 空格"
+    echo "  description: 至少 1 个字符"
+    echo ""
+    echo "  合法示例:"
+    echo "    feat(plugins): fileTransfer 新增批量上传任务"
+    echo "    fix(linux): 修复 GCC 8 编译错误"
+    echo "    build: 移除 sqlite3 顶层 override"
+    echo "    docs(openspec): 回写 appbuilder-linux-conan-qt-path 验证结果"
+    echo ""
+    echo "  详见 references/git-commit-message.md"
+    echo ""
+    echo "  修复方法: git commit --amend  (尚未推到远端时允许)"
+} >&2
+
+exit 1

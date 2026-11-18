@@ -63,17 +63,17 @@ function handleClick(event: MouseEvent) {
 
 .status-tag--plain.status-tag--success {
   border-color: #16a34a;
-  color: #16a34a;
+  color: #141313;
 }
 
 .status-tag--plain.status-tag--warning {
   border-color: #d97706;
-  color: #d97706;
+  color: #1c1c1b;
 }
 
 .status-tag--plain.status-tag--error {
   border-color: #dc2626;
-  color: #dc2626;
+  color: #0e0d0d;
 }
 
 .status-tag.is-disabled {

@@ -53,7 +53,7 @@ const textLength = computed(() => props.modelValue.length)
 <script setup lang="ts">
 interface Props {
   text: string
-  disabled?: boolean
+  disabled?: boolean  
 }
 
 const props = withDefaults(defineProps<Props>(), {
