@@ -1,0 +1,98 @@
+:root {
+  --page-bg: #f5f7fb;
+  --surface: #ffffff;
+  --border: #e4e7ed;
+  --text-strong: #1f2d3d;
+  --text-regular: #475669;
+  --text-muted: #8492a6;
+  --brand: #3b82f6;
+  --radius: 10px;
+  --shadow: 0 6px 20px rgba(31, 45, 61, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--page-bg);
+  color: var(--text-strong);
+  font-family: 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--brand);
+  text-decoration: none;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.surface {
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.section-title {
+  margin: 0 0 12px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.muted {
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.code-block {
+  margin: 0;
+  padding: 14px 16px;
+  overflow-x: auto;
+  background: #0f172a;
+  color: #d6e2f1;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.code-block code {
+  font-family: 'JetBrains Mono', 'Cascadia Code', Consolas, monospace;
+  white-space: pre;
+}
+
+.entry-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.toolbar-spacer {
+  flex: 1;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
