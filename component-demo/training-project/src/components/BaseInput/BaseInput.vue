@@ -15,6 +15,7 @@ const emit=defineEmits<{
   'update:modelValue': [value: string]
 }>()
 function handleInput(event: Event) {
+  if(props.disabled) return
   const target = event.target as HTMLInputElement
   emit('update:modelValue', target.value)
 }
